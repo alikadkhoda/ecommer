@@ -4,6 +4,8 @@ import Navbar from './Navbar';
 import Sidbar from './Sidebar';
 import '../../assets/admin/css/styles.css';
 import '../../assets/admin/js/scripts.js'
+import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
+import Profile from '../../components/admin/Profile';
 const MasterLayout = () => {
     return (
         <div className='sb-nav-fixed'>
@@ -15,7 +17,8 @@ const MasterLayout = () => {
                 </div>
                 <div id="layoutSidenav_content">
                     <main>
-                        Master File
+                        <Navigate to={'/admin/dashboard'} replace={true}/>
+                        <Outlet/>
                     </main>
                     <Footer/>
                 </div>

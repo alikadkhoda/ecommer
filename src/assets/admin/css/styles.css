@@ -78,11 +78,15 @@
   --bs-code-color: #d63384;
   --bs-highlight-bg: #fff3cd;
 }
-
+@font-face {
+  font-family: 'IRANSanse';
+  src: url('../../fonts/IRANSansWeb.ttf');
+}
 *,
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: 'IRANSanse';
 }
 
 @media (prefers-reduced-motion: no-preference) {
