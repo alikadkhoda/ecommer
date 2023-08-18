@@ -6,11 +6,14 @@ import Profile from "../components/admin/Profile.js";
 import Login from "../components/frontend/auth/Login.js";
 import Register from "../components/frontend/auth/Register.js";
 import Home from "../components/frontend/Home.js";
+import AdminPrivateRoute from "../AdminPrivateRoute.js";
+import Page403 from "../components/admin/errors/Page403.js";
+import Page404 from "../components/admin/errors/Page404.js";
 
 const routes = createBrowserRouter([
     {
         path: '/admin',
-        element: <MasterLayout />,
+        element: <AdminPrivateRoute/>,
         children: [
             {
                 path: '/admin/dashboard',
@@ -38,6 +41,15 @@ const routes = createBrowserRouter([
 
         ]
     },
+    {
+        path:'/403',
+        element:<Page403/>
+    },
+    {
+        path:'/404',
+        element:<Page404/>
+    }
+    
 
 
 ])
