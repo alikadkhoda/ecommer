@@ -29,7 +29,13 @@ const Login = () => {
                 localStorage.setItem('auth_token',res.data.token)
                 localStorage.setItem('auth_name',res.data.username)
                 swal('ورود', res.data.message,'success')
-                navigate('/')
+                if (res.data.role==='admin') {
+                    navigate('/admin/dashboard')
+                }
+                else{
+                     navigate('/')
+                }
+               
             }else if(res.data.status===401){
                 swal('هشدار', res.data.message,'warning')
             }else{
