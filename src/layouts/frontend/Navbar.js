@@ -51,6 +51,12 @@ const Navbar = () => {
               <Link className="nav-link active" to={'/'}>خانه</Link>
             </li>
             <li className="nav-item">
+              <Link className="nav-link" to={'/about'}>درباره ما</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to={'/contact'}>محتوا</Link>
+            </li>
+            <li className="nav-item">
               <Link className="nav-link" to={'#'}>دسته بندی</Link>
             </li>
 

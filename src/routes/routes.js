@@ -13,6 +13,12 @@ import Category from "../components/admin/category/Category.js";
 import ViewCategory from "../components/admin/category/ViewCategory.js";
 import EditCategory from "../components/admin/category/EditCategory.js";
 import AddProduct from "../components/admin/product/AddProduct.js";
+import ViewProduct from "../components/admin/product/ViewProduct.js";
+import EditProduct from "../components/admin/product/EditProduct.js";
+import About from "../components/frontend/About.js";
+import Contact from "../components/frontend/Contact.js";
+import FrontendLayout from "../layouts/frontend/FrontendLayout.js";
+
 
 const routes = createBrowserRouter([
     {
@@ -42,13 +48,21 @@ const routes = createBrowserRouter([
             {
                 path: '/admin/add-product',
                 element: <AddProduct />
+            },
+            {
+                path: '/admin/view-product',
+                element: <ViewProduct />
+            },
+            {
+                path: '/admin/edit-product/:id',
+                element: <EditProduct />
             }
 
         ]
     },
     {
         path: '/',
-        element: <Home />,
+        element: <FrontendLayout />,
         children: [
             {
                 path: '/login',
@@ -57,6 +71,14 @@ const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: localStorage.getItem('auth_token')?<Navigate to={'/'}/>: <Register />
+            },
+            {
+                path:'/about',
+                element:<About/>
+            },
+            {
+                path:'/contact',
+                element:<Contact/>
             }
 
         ]
