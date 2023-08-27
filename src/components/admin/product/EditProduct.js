@@ -87,7 +87,7 @@ const EditProduct = () => {
             headers: { 'Content-Type': 'multipart/form-data' }
         }).then(res => {
             if (res.data.status === 200) {
-                swal('محصول اضافه شد', res.data.message, 'success')
+                swal('محصول آپدیت شد', res.data.message, 'success')
                 setErrorList([])
                 
             }

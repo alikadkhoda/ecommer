@@ -5,7 +5,6 @@ import Dashboard from "../components/admin/Dashboard.js";
 import Profile from "../components/admin/Profile.js";
 import Login from "../components/frontend/auth/Login.js";
 import Register from "../components/frontend/auth/Register.js";
-import Home from "../components/frontend/Home.js";
 import AdminPrivateRoute from "../AdminPrivateRoute.js";
 import Page403 from "../components/errors/Page403.js";
 import Page404 from "../components/errors/Page404.js";
@@ -18,6 +17,11 @@ import EditProduct from "../components/admin/product/EditProduct.js";
 import About from "../components/frontend/About.js";
 import Contact from "../components/frontend/Contact.js";
 import FrontendLayout from "../layouts/frontend/FrontendLayout.js";
+import ViewCategoryFront from "../components/frontend/collections/ViewCategoryFront";
+import ViewProductFront from "../components/frontend/collections/ViewProductFront.js";
+import ProductDetail from "../components/frontend/collections/ProductDetail.js";
+import Cart from "../components/frontend/Cart.js";
+import Checkout from "../components/frontend/Checkout.js";
 
 
 const routes = createBrowserRouter([
@@ -79,7 +83,27 @@ const routes = createBrowserRouter([
             {
                 path:'/contact',
                 element:<Contact/>
-            }
+            },
+            {
+                path:'/collections',
+                element:<ViewCategoryFront/>
+            },
+            {
+                path:'/collections/:slug',
+                element:<ViewProductFront/>
+            },
+            {
+                path:'/collections/:category_slug/:product_slug',
+                element:<ProductDetail/>
+            },
+            {
+                path:'/cart',
+                element:<Cart/>
+            },
+            {
+                path:'/checkout',
+                element:<Checkout/>
+            },
 
         ]
     },

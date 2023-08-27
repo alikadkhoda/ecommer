@@ -57,7 +57,10 @@ const Navbar = () => {
               <Link className="nav-link" to={'/contact'}>محتوا</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to={'#'}>دسته بندی</Link>
+              <Link className="nav-link" to={'/collections'}>دسته بندی</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to={'/cart'}>Cart</Link>
             </li>
 
               {AuthButtons}

@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 const ViewProduct = () => {
     const [product, setProduct]=useState([])
     const [loading, setLoading]=useState(false)
-    var productStatus=''
     useEffect(()=>{
         document.title='View Product'
         setLoading(true)
