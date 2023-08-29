@@ -6,7 +6,7 @@ import swal from 'sweetalert';
 const Cart = () => {
     const [loading, setLoading] = useState(false)
     const [cart, setCart] = useState([])
-    var totalCartPrice=0
+    var totalCartPrice = 0
     const navigate = useNavigate()
 
     if (!localStorage.getItem('auth_token')) {
@@ -93,45 +93,64 @@ const Cart = () => {
                         </div> :
                             <div className='col-md-12'>
                                 {cart.length > 0 ?
-                                    <div className='table-responsive'>
-                                        <table className='table table-bordered'>
-                                            <thead>
-                                                <tr>
-                                                    <th>Image</th>
-                                                    <th className='text-center'>Product</th>
-                                                    <th className='text-center'>Price</th>
-                                                    <th className='text-center'>Quantity</th>
-                                                    <th className='text-center'>Total Price</th>
-                                                    <th>Remove</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                {cart.map((item) => {
-                                                    totalCartPrice += item.product.selling_price*item.product_qty
-                                                    return (
-                                                        <tr key={item.id}>
-                                                            <td width='10%'>
-                                                                <img src={`http://127.0.0.1:8000/${item.product.image}`} alt={item.product.name} width='50px' height='50px' />
-                                                            </td>
-                                                            <td>{item.product.name}</td>
-                                                            <td width='15%' className='text-center'>{item.product.selling_price}</td>
-                                                            <td width='15%'>
-                                                                <div className='input-group'>
-                                                                    <button type="button" onClick={() => handleDecrement(item.id)} className='input-group-text'>-</button>
-                                                                    <div className='form-control text-center'>{item.product_qty}</div>
-                                                                    <button type="button" onClick={() => handleIncrement(item.id)} className='input-group-text'>+</button>
-                                                                </div>
-                                                            </td>
-                                                            <td width='15%' className='text-center'>{item.product.selling_price * item.product_qty}</td>
-                                                            <td width='10%'>
-                                                                <button type="button" onClick={(e) => deleteCartItem(e, item.id)} className='btn btn-danger btn-sm'>Remove</button>
-                                                            </td>
-                                                        </tr>
-                                                    )
-                                                })}
-                                            </tbody>
-                                        </table>
-                                    </div> :
+                                    <div>
+                                        <div className='table-responsive'>
+                                            <table className='table table-bordered'>
+                                                <thead>
+                                                    <tr>
+                                                        <th>Image</th>
+                                                        <th className='text-center'>Product</th>
+                                                        <th className='text-center'>Price</th>
+                                                        <th className='text-center'>Quantity</th>
+                                                        <th className='text-center'>Total Price</th>
+                                                        <th>Remove</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {cart.map((item) => {
+                                                        totalCartPrice += item.product.selling_price * item.product_qty
+                                                        return (
+                                                            <tr key={item.id}>
+                                                                <td width='10%'>
+                                                                    <img src={`http://127.0.0.1:8000/${item.product.image}`} alt={item.product.name} width='50px' height='50px' />
+                                                                </td>
+                                                                <td>{item.product.name}</td>
+                                                                <td width='15%' className='text-center'>{item.product.selling_price}</td>
+                                                                <td width='15%'>
+                                                                    <div className='input-group'>
+                                                                        <button type="button" onClick={() => handleDecrement(item.id)} className='input-group-text'>-</button>
+                                                                        <div className='form-control text-center'>{item.product_qty}</div>
+                                                                        <button type="button" onClick={() => handleIncrement(item.id)} className='input-group-text'>+</button>
+                                                                    </div>
+                                                                </td>
+                                                                <td width='15%' className='text-center'>{item.product.selling_price * item.product_qty}</td>
+                                                                <td width='10%'>
+                                                                    <button type="button" onClick={(e) => deleteCartItem(e, item.id)} className='btn btn-danger btn-sm'>Remove</button>
+                                                                </td>
+                                                            </tr>
+                                                        )
+                                                    })}
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+
+
+
+                                        <div className='col-md-8'></div>
+                                        <div className='col-md-4'>
+                                            <div className='card card-body mt-3'>
+                                                <h4>Sub Total:
+                                                    <span className='float-end'>{totalCartPrice}</span>
+                                                </h4>
+                                                <h4>Grand Total:
+                                                    <span className='float-end'>{totalCartPrice}</span>
+                                                </h4>
+                                                <Link to={'/checkout'} className='btn btn-primary'>Checkout</Link>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    :
                                     <div>
                                         <div className='card card-body py-5 text-center shadow-sm'>
                                             <h4>لیست خرید شما خالی است</h4>
@@ -141,18 +160,7 @@ const Cart = () => {
 
                             </div>
                         }
-                        <div className='col-md-8'></div>
-                        <div className='col-md-4'>
-                            <div className='card card-body mt-3'>
-                                <h4>Sub Total:
-                                    <span className='float-end'>{totalCartPrice}</span>
-                                </h4>
-                                <h4>Grand Total:
-                                    <span className='float-end'>{totalCartPrice}</span>
-                                </h4>
-                                <Link to={'/checkout'} className='btn btn-primary'>Checkout</Link>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
             </div>

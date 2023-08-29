@@ -7,6 +7,17 @@ const Checkout = () => {
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     const [cart, setCart] = useState([])
+    const [checkoutInput, setCheckoutInput] = useState({
+        firstname: '',
+        lastname: '',
+        phone: '',
+        email: '',
+        address: '',
+        city: '',
+        state: '',
+        zipcode: ''
+    })
+    const [error, setError] = useState([])
     var totalCartPrice = 0
 
     if (!localStorage.getItem('auth_token')) {
@@ -29,6 +40,38 @@ const Checkout = () => {
             setLoading(false)
         })
     }, [])
+
+    const handleInput = (e) => {
+        e.persist()
+        setCheckoutInput({ ...checkoutInput, [e.target.name]: e.target.value })
+    }
+
+    const submitOrder = (e) => {
+        e.preventDefault()
+
+        const data = {
+            firstname: checkoutInput.firstname,
+            lastname: checkoutInput.lastname,
+            phone: checkoutInput.phone,
+            email: checkoutInput.email,
+            address: checkoutInput.address,
+            city: checkoutInput.city,
+            state: checkoutInput.state,
+            zipcode: checkoutInput.zipcode
+        }
+        axios.post('/api/place-order', data).then(res => {
+            if (res.data.status === 200) {
+                swal('انجام شد', res.data.message, 'success')
+                setError([])
+                navigate('/')
+            }
+            else if (res.data.status === 422) {
+                swal('مشکل اعتبار سنجی', '', 'error')
+                setError(res.data.errors)
+            }
+        })
+    }
+
     return (
         <div>
             <div className='py-3 bg-warning'>
@@ -43,7 +86,7 @@ const Checkout = () => {
                             <div className="spinner-border" role="status">
                                 <span className="visually-hidden">Loading...</span>
                             </div>
-                        </div> :
+                        </div> : cart.length > 0 ?
                             <div className='row'>
                                 <div className='col-md-7'>
                                     <div className='card'>
@@ -55,54 +98,62 @@ const Checkout = () => {
                                                 <div className='col-md-6'>
                                                     <div className='form-group mb-3'>
                                                         <label>First Name:</label>
-                                                        <input type="text" name="firstname" className='form-control' />
+                                                        <input type="text" name="firstname" onChange={handleInput} value={checkoutInput.firstname} className='form-control' />
+                                                        <small className='text-danger'>{error.firstname}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-6'>
                                                     <div className='form-group mb-3'>
                                                         <label>Last Name:</label>
-                                                        <input type="text" name="lastname" className='form-control' />
+                                                        <input type="text" name="lastname" onChange={handleInput} value={checkoutInput.lastname} className='form-control' />
+                                                        <small className='text-danger'>{error.lastname}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-6'>
                                                     <div className='form-group mb-3'>
                                                         <label>Phone Number:</label>
-                                                        <input type="text" name="phone" className='form-control' />
+                                                        <input type="text" name="phone" onChange={handleInput} value={checkoutInput.phone} className='form-control' />
+                                                        <small className='text-danger'>{error.phone}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-6'>
                                                     <div className='form-group mb-3'>
                                                         <label>Email Address:</label>
-                                                        <input type="text" name="email" className='form-control' />
+                                                        <input type="text" name="email" onChange={handleInput} value={checkoutInput.email} className='form-control' />
+                                                        <small className='text-danger'>{error.email}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-12'>
                                                     <div className='form-group mb-3'>
                                                         <label>Full Address:</label>
-                                                        <textarea rows="3" className='form-control'></textarea>
+                                                        <textarea rows="3" name='address' onChange={handleInput} value={checkoutInput.address} className='form-control'></textarea>
+                                                        <small className='text-danger'>{error.address}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-4'>
                                                     <div className='form-group mb-3'>
                                                         <label>City:</label>
-                                                        <input type="text" name="city" className='form-control' />
+                                                        <input type="text" name="city" onChange={handleInput} value={checkoutInput.city} className='form-control' />
+                                                        <small className='text-danger'>{error.city}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-4'>
                                                     <div className='form-group mb-3'>
                                                         <label>State:</label>
-                                                        <input type="text" name="state" className='form-control' />
+                                                        <input type="text" name="state" onChange={handleInput} value={checkoutInput.state} className='form-control' />
+                                                        <small className='text-danger'>{error.state}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-4'>
                                                     <div className='form-group mb-3'>
                                                         <label>Zip Code:</label>
-                                                        <input type="text" name="zipcode" className='form-control' />
+                                                        <input type="text" name="zipcode" onChange={handleInput} value={checkoutInput.zipcode} className='form-control' />
+                                                        <small className='text-danger'>{error.zipcode}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-12'>
                                                     <div className='form-group text-end'>
-                                                        <button type="button" className='btn btn-primary'>Place Order</button>
+                                                        <button type="button" onClick={submitOrder} className='btn btn-primary'>Place Order</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -137,6 +188,11 @@ const Checkout = () => {
                                             </tr>
                                         </tbody>
                                     </table>
+                                </div>
+                            </div> :
+                            <div>
+                                <div className='card card-body py-5 text-center shadow-sm'>
+                                    <h4>لیست خرید شما خالی است</h4>
                                 </div>
                             </div>
                         }

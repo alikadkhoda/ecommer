@@ -22,6 +22,7 @@ import ViewProductFront from "../components/frontend/collections/ViewProductFron
 import ProductDetail from "../components/frontend/collections/ProductDetail.js";
 import Cart from "../components/frontend/Cart.js";
 import Checkout from "../components/frontend/Checkout.js";
+import Order from "../components/admin/order/Order.js";
 
 
 const routes = createBrowserRouter([
@@ -60,7 +61,11 @@ const routes = createBrowserRouter([
             {
                 path: '/admin/edit-product/:id',
                 element: <EditProduct />
-            }
+            },
+            {
+                path: '/admin/orders',
+                element: <Order />
+            },
 
         ]
     },

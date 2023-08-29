@@ -33,6 +33,10 @@ const Sidbar = () => {
                         <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
                         پروفایل
                     </Link>
+                    <Link className="nav-link" to={'/admin/orders'}>
+                        <div className="sb-nav-link-icon"><i className="fas fa-tachometer-alt"></i></div>
+                        سفارشات
+                    </Link>
                     <div className="sb-sidenav-menu-heading">Interface</div>
                     <Link className="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                         <div className="sb-nav-link-icon"><i className="fas fa-book-open"></i></div>
