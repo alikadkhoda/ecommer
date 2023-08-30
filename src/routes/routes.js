@@ -23,6 +23,7 @@ import ProductDetail from "../components/frontend/collections/ProductDetail.js";
 import Cart from "../components/frontend/Cart.js";
 import Checkout from "../components/frontend/Checkout.js";
 import Order from "../components/admin/order/Order.js";
+import User from "../components/admin/user/User.js";
 
 
 const routes = createBrowserRouter([
@@ -65,6 +66,10 @@ const routes = createBrowserRouter([
             {
                 path: '/admin/orders',
                 element: <Order />
+            },
+            {
+                path: '/admin/users',
+                element: <User />
             },
 
         ]

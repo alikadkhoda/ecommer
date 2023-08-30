@@ -19,7 +19,7 @@ const ViewCategoryFront = () => {
         <div>
             <div className='py-3 bg-warning'>
                 <div className='container'>
-                    <h6>Category Page</h6>
+                    <h6>دسته بندی‌ها</h6>
                 </div>
             </div>
             <div className='py-3'>
@@ -32,7 +32,7 @@ const ViewCategoryFront = () => {
                         </div> : category.map((item) => {
                             return (
                                 <div className='col-md-4' key={item.id}>
-                                    <div className='card'>
+                                    <div className='card mb-4'>
                                         <Link to=''>
                                             <img src="" alt={item.name} />
                                         </Link>

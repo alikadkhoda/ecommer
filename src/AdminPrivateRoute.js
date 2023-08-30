@@ -6,12 +6,14 @@ import MasterLayout from './layouts/admin/MasterLayout';
 
 const AdminPrivateRoute = () => {
     const [Authenticated, setAuthenticated]=useState(false)
+    const [user,setUser]=useState('')
     const [loading, setLoading]=useState(true)
     const navigate=useNavigate()
     useEffect(()=>{
         axios.get('/api/checkingAuthenticated').then(res=>{
             if (res.data.status===200) {
                 setAuthenticated(true)
+                setUser(res.data.user)
             }
             setLoading(false)
            
@@ -51,7 +53,7 @@ const AdminPrivateRoute = () => {
     }
     return ( 
        Authenticated?
-       <MasterLayout/>:<Navigate to={'/login'}/>
+       <MasterLayout user={user}/>:<Navigate to={'/login'}/>
      );
 }
  

@@ -123,13 +123,13 @@ const EditProduct = () => {
                             <form onSubmit={updateProduct} encType='multipart/form-data'>
                                 <ul className="nav nav-tabs" id="myTab" role="tablist">
                                     <li className="nav-item" role="presentation">
-                                        <button className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
+                                        <button className="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">اصلی</button>
                                     </li>
                                     <li className="nav-item" role="presentation">
-                                        <button className="nav-link" id="seotags-tab" data-bs-toggle="tab" data-bs-target="#seotags-tab-pane" type="button" role="tab" aria-controls="seotags-tab-pane" aria-selected="false">SEO Tags</button>
+                                        <button className="nav-link" id="seotags-tab" data-bs-toggle="tab" data-bs-target="#seotags-tab-pane" type="button" role="tab" aria-controls="seotags-tab-pane" aria-selected="false">سئو</button>
                                     </li>
                                     <li className="nav-item" role="presentation">
-                                        <button className="nav-link" id="otherdetails-tab" data-bs-toggle="tab" data-bs-target="#otherdetails-tab-pane" type="button" role="tab" aria-controls="otherdetails-tab-pane" aria-selected="false">Other Details</button>
+                                        <button className="nav-link" id="otherdetails-tab" data-bs-toggle="tab" data-bs-target="#otherdetails-tab-pane" type="button" role="tab" aria-controls="otherdetails-tab-pane" aria-selected="false">جزییات بیشتر</button>
                                     </li>
 
                                 </ul>
@@ -213,11 +213,11 @@ const EditProduct = () => {
                                                 <input type="checkbox" name="featured" onChange={handleCheckbox} defaultChecked={allCheckbox.featured === 1 ? true:false} className='w-50 h-50' />
                                             </div>
                                             <div className='col-md-4 form-group mb-3'>
-                                                <label>Popular (checked=shown)</label>
+                                                <label>عمومی (checked=shown)</label>
                                                 <input type="checkbox" name="popular" onChange={handleCheckbox} defaultChecked={allCheckbox.popular === 1 ? true:false} className='w-50 h-50' />
                                             </div>
                                             <div className='col-md-4 form-group mb-3'>
-                                                <label>Status (checked=Hidden)</label>
+                                                <label>وضعیت (checked=Hidden)</label>
                                                 <input type="checkbox" name="status" onChange={handleCheckbox} defaultChecked={allCheckbox.status === 1 ? true:false} className='w-50 h-50' />
                                             </div>
                                         </div>

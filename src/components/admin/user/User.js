@@ -3,47 +3,45 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import swal from 'sweetalert';
 
-const ViewCategory = () => {
+const User = () => {
+
     const [loading, setLoading] = useState(false)
-    const [categoryList, setCategoryList] = useState([])
+    const [userList, setUserList] = useState([])
 
     useEffect(() => {
         setLoading(true)
-        axios.get('/api/view-category').then(res => {
+        axios.get('/api/view-users').then(res => {
 
             if (res.data.status === 200) {
-                setCategoryList(res.data.category)
+                setUserList(res.data.users)
             }
         }).finally(() => {
             setLoading(false)
         })
     }, [])
 
-    const deleteCategory=(e,id)=>{
+    const deleteUser=(e,id)=>{
         e.preventDefault()
         const thisClicked=e.currentTarget
-        thisClicked.innerText='Deleting'
+        thisClicked.innerText='درحال حذف'
 
-        axios.delete(`/api/delete-category/${id}`).then((res)=>{
+        axios.delete(`/api/delete-user/${id}`).then((res)=>{
             if(res.data.status===200){
                 swal('حذف شد',res.data.message,'success')
                 thisClicked.closest('tr').remove()
             }
             else if(res.data.status===404){
-                swal('حذف شد',res.data.message,'success')
+                swal('خطا',res.data.message,'error')
                 thisClicked.innerText='Delete'
             }
         })
     }
-
-    return (
+    console.log(userList);
+    return ( 
         <div className='container px-4'>
             <div className='card mt-4'>
                 <div className='card-header'>
-                    <h4>لیست دسته بندی‌ها
-                        <Link to={'/admin/add-category'} className='btn btn-primary btn-sm float-end'>افزودن دسته بندی جدید</Link>
-                    </h4>
-                    
+                    <h4>لیست دسته بندی‌ها</h4>
                 </div>
                 <div className='card-body'>
                     {loading ? <div className="d-flex justify-content-center">
@@ -57,27 +55,26 @@ const ViewCategory = () => {
                             <tr>
                                 <th>آیدی</th>
                                 <th>نام</th>
-                                <th>اسلاگ</th>
-                                <th>وضعیت</th>
+                                <th>ایمیل</th>
+                                <th>نقش</th>
                                 <th>ویرایش</th>
                                 <th>حذف</th>
                             </tr>
                         </thead>
                         <tbody>
-
-
-                            {categoryList.map(item => {
+                            {userList.map(item => {
+                               
                                 return (
                                     <tr key={item.id}>
                                         <td>{item.id}</td>
                                         <td>{item.name}</td>
-                                        <td>{item.slug}</td>
-                                        <td>{item.status}</td>
+                                        <td>{item.email}</td>
+                                        <td>{item.role_as ===1 ? 'ادمین':'کاربر'}</td>
                                         <td>
-                                            <Link to={`/admin/edit-category/${item.id}`} className='btn btn-success btn-sm'>ویرایش</Link>
+                                            <Link to={`/admin/edit-user/${item.id}`} className='btn btn-success btn-sm'>ویرایش</Link>
                                         </td>
                                         <td>
-                                            <button type="button" onClick={(e)=>{deleteCategory(e,item.id)}} className='btn btn-danger btn-sm'>حذف</button>
+                                            <button type="button" onClick={(e)=>{deleteUser(e,item.id)}} className='btn btn-danger btn-sm'>حذف</button>
                                         </td>
                                     </tr>
                                 )
@@ -87,7 +84,7 @@ const ViewCategory = () => {
                 </div>
             </div>
         </div>
-    );
+     );
 }
-
-export default ViewCategory;
+ 
+export default User;

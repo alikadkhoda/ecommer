@@ -107,7 +107,7 @@ const EditCategory = () => {
                                     <textarea name="meta_description" onChange={handleInput} value={categoryInput.meta_description} className='form-control' />
                                 </div>
                             </div>
-                            <button type="submit" className='btn btn-primary float-endt'>آپدیت</button>
+                            <button type="submit" className='btn btn-primary float-endt mt-1'>آپدیت</button>
                         </div>
                     </form>}
                 </div>

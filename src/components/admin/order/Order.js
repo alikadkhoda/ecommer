@@ -34,14 +34,14 @@ const Order = () => {
                     </div> : null}
                     <div className='card-body'>
                     <div className='table-responsive'>
-                        <table className='table tabel-bordered table-striped'>
+                        <table className='table table-bordered table-striped'>
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Tracking No.</th>
-                                    <th>Phone No.</th>
-                                    <th>Email</th>
-                                    <th>Action</th>
+                                    <th>آیدی</th>
+                                    <th>شناسه رهگیری</th>
+                                    <th>شماره تماس</th>
+                                    <th>ایمیل</th>
+                                    <th>فعالیت</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -56,7 +56,7 @@ const Order = () => {
                                                 <td >{item.phone}</td>
                                                 <td >{item.email}</td>
 
-                                                <td ><Link to={`/admin/view-order/${item.id}`} className='btn btn-success btn-sm'>View</Link></td>
+                                                <td ><Link to={`/admin/view-order/${item.id}`} className='btn btn-success btn-sm'>مشاهده</Link></td>
 
 
                                             </tr>
