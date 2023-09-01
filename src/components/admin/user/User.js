@@ -36,7 +36,7 @@ const User = () => {
             }
         })
     }
-    console.log(userList);
+    
     return ( 
         <div className='container px-4'>
             <div className='card mt-4'>

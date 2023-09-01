@@ -37,7 +37,7 @@ const Sidbar = ({user}) => {
                         <div className="sb-nav-link-icon"><i className="fas fa-shopping-basket ms-1"></i></div>
                         سفارشات
                     </Link>
-                    <Link className="nav-link" to={'/admin/users'}>
+                    <Link className="nav-link" to={'/admin/view-users'}>
                         <div className="sb-nav-link-icon"><i className="fas fa-user mt-1 ms-1"></i></div>
                         کاربران
                     </Link>

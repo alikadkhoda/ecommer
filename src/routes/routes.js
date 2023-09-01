@@ -2,7 +2,6 @@ import React from "react";
 import { createBrowserRouter, Navigate } from "react-router-dom";
 
 import Dashboard from "../components/admin/Dashboard.js";
-import Profile from "../components/admin/Profile.js";
 import Login from "../components/frontend/auth/Login.js";
 import Register from "../components/frontend/auth/Register.js";
 import AdminPrivateRoute from "../AdminPrivateRoute.js";
@@ -24,6 +23,10 @@ import Cart from "../components/frontend/Cart.js";
 import Checkout from "../components/frontend/Checkout.js";
 import Order from "../components/admin/order/Order.js";
 import User from "../components/admin/user/User.js";
+import EditUser from "../components/admin/user/EditUser.js";
+import OrderDetail from "../components/admin/order/OrderDetail.js";
+import Profile from "../components/frontend/profile/Profile";
+import EditProfile from "../components/frontend/profile/EditProfile.js";
 
 
 const routes = createBrowserRouter([
@@ -68,8 +71,16 @@ const routes = createBrowserRouter([
                 element: <Order />
             },
             {
-                path: '/admin/users',
+                path: '/admin/view-order/:id',
+                element: <OrderDetail />
+            },
+            {
+                path: '/admin/view-users',
                 element: <User />
+            },
+            {
+                path: '/admin/edit-user/:id',
+                element: <EditUser />
             },
 
         ]
@@ -85,6 +96,14 @@ const routes = createBrowserRouter([
             {
                 path: '/register',
                 element: localStorage.getItem('auth_token')?<Navigate to={'/'}/>: <Register />
+            },
+            {
+                path: '/profile',
+                element: localStorage.getItem('auth_token')? <Profile /> : <Navigate to={'/'}/>
+            },
+            {
+                path: '/edit-profile',
+                element: localStorage.getItem('auth_token')? <EditProfile /> : <Navigate to={'/'}/>
             },
             {
                 path:'/about',

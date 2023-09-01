@@ -37,6 +37,7 @@ const EditProduct = () => {
     const handleCheckbox=(e)=>{
         e.persist()
         setCheckboxes({...allCheckbox,[e.target.name]:e.target.checked})
+        
     }
 
     useEffect(() => {
@@ -141,6 +142,7 @@ const EditProduct = () => {
                                                 <option>انتخاب دسته بندی</option>
                                                 {
                                                     categoryList.map(item => {
+                                                       
                                                         return (
                                                             <option value={item.id} key={item.id}>{item.name}</option>
                                                         )

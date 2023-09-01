@@ -29,16 +29,19 @@ const Category = () => {
     }
     const submitCategory = (e) => {
         e.preventDefault()
-        const data = {
-            slug: categoryInput.slug,
-            name: categoryInput.name,
-            description: categoryInput.description,
-            status: categoryInput.status,
-            meta_title: categoryInput.meta_title,
-            meta_keyword: categoryInput.meta_keyword,
-            meta_description: categoryInput.meta_description
-        }
-        axios.post('/api/store-category', data).then(res => {
+        const formData = new FormData()
+        formData.append('image', picture.image)
+        formData.append('slug', categoryInput.slug )
+        formData.append('name', categoryInput.name )
+        formData.append('description', categoryInput.description )
+        formData.append('status', categoryInput.status )
+        formData.append('meta_title', categoryInput.meta_title )
+        formData.append('meta_keyword', categoryInput.meta_keyword )
+        formData.append('meta_description', categoryInput.meta_description )
+        console.log(formData);
+        axios.post('/api/store-category', formData,{
+            headers: { 'Content-Type': 'multipart/form-data' }
+        }).then(res => {
             if (res.data.status === 200) {
                 swal('دسته بندی جدید', res.data.message, 'success')
                 document.getElementById('CATEGORY_FORM').reset()
@@ -68,7 +71,7 @@ const Category = () => {
                     return (<p className='mb-1 text-danger' key={item}>{item}</p>)
                 })
             }
-            <form onSubmit={submitCategory} id='CATEGORY_FORM' >
+            <form onSubmit={submitCategory} id='CATEGORY_FORM' encType='multipart/form-data' >
                 <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
                     <li className="nav-item" role="presentation">
                         <button className="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">اصلی</button>

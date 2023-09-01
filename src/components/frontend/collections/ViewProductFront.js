@@ -47,7 +47,7 @@ const ViewProductFront = () => {
                                 <div className='col-md-3' key={item.id}>
                                     <div className='card'>
                                         <Link to={`/collections/${item.category.slug}/${item.slug}`}>
-                                            <img src={`http://127.0.0.1:8000/${item.image}`} className='w-100' alt={item.name} />
+                                            <img src={`http://127.0.0.1:8000/${item.image}`} className='w-100' width='250px' height='250px' alt={item.name} />
                                         </Link>
                                         <div className='card-body'>
                                             <Link to={`/collections/${item.category.slug}/${item.slug}`}>

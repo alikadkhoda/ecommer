@@ -30,7 +30,7 @@ const ViewCategory = () => {
                 thisClicked.closest('tr').remove()
             }
             else if(res.data.status===404){
-                swal('حذف شد',res.data.message,'success')
+                swal('خطا',res.data.message,'error')
                 thisClicked.innerText='Delete'
             }
         })
@@ -72,7 +72,7 @@ const ViewCategory = () => {
                                         <td>{item.id}</td>
                                         <td>{item.name}</td>
                                         <td>{item.slug}</td>
-                                        <td>{item.status}</td>
+                                        <td>{item.status=== 1 ?'مخفی':'نمایش'}</td>
                                         <td>
                                             <Link to={`/admin/edit-category/${item.id}`} className='btn btn-success btn-sm'>ویرایش</Link>
                                         </td>

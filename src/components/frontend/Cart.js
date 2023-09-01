@@ -75,14 +75,10 @@ const Cart = () => {
         <div>
             <div className='py-3 bg-warning'>
                 <div className='container'>
-                    <h6>Home / Cart</h6>
-                </div>
-            </div>
-            <div className='py-3 bg-warning'>
-                <div className='container'>
                     <h6>سبد خرید</h6>
                 </div>
             </div>
+            
             <div className='py-4'>
                 <div className='container'>
                     <div className='row'>
@@ -98,12 +94,12 @@ const Cart = () => {
                                             <table className='table table-bordered'>
                                                 <thead>
                                                     <tr>
-                                                        <th>Image</th>
-                                                        <th className='text-center'>Product</th>
-                                                        <th className='text-center'>Price</th>
-                                                        <th className='text-center'>Quantity</th>
-                                                        <th className='text-center'>Total Price</th>
-                                                        <th>Remove</th>
+                                                        <th>تصویر</th>
+                                                        <th className='text-center'>محصول</th>
+                                                        <th className='text-center'>قیمت</th>
+                                                        <th className='text-center'>تعداد</th>
+                                                        <th className='text-center'>هزینه کل</th>
+                                                        <th>حذف</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -140,10 +136,10 @@ const Cart = () => {
                                         <div className='col-md-8'></div>
                                         <div className='col-md-4'>
                                             <div className='card card-body mt-3'>
-                                                <h4>Sub Total:
+                                                <h4>مجموع هزینه‌ها:
                                                     <span className='float-end'>{totalCartPrice}</span>
                                                 </h4>
-                                                <h4>Grand Total:
+                                                <h4>هزینه کل:
                                                     <span className='float-end'>{totalCartPrice}</span>
                                                 </h4>
                                                 <Link to={'/checkout'} className='btn btn-primary'>Checkout</Link>
