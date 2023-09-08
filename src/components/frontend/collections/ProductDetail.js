@@ -64,7 +64,7 @@ const ProductDetail = () => {
         <div>
             <div className='py-3 bg-warning'>
                 <div className='container'>
-                    <h6>Collection / {category.name} /{product.name}</h6>
+                    <h6>دسته بندی‌ها / {category.name} /{product.name}</h6>
                 </div>
             </div>
             <div className='py-3'>
@@ -75,23 +75,23 @@ const ProductDetail = () => {
                                 <span className="visually-hidden">Loading...</span>
                             </div>
                         </div> : null}
-                        <div className='col-md-4 border-end'>
-                            <img src={`http://127.0.0.1:8000/${product.image}`} alt={product.name} className='w-100' />
+                        <div className='col-md-4'>
+                            <img src={`http://127.0.0.1:8000/${product.image}`} alt={product.name} className='w-100 mb-3' />
                         </div>
                         <div className='col-md-8'>
                             <h4>
                                 {product.name}
-                                <span className='float-end badge btn-sm bg-danger badge-pill rounded'>{product.brand}</span>
+                                <span className='float-start badge btn-sm bg-danger badge-pill rounded'>{product.brand}</span>
                             </h4>
                             <p>{product.description}</p>
-                            <h4 className='mb-1'>
-                                Rs:{product.selling_price}
-                                <s className='ms-2'>Rs:{product.orginal_price}</s>
+                            <h4 className='mb-1 gap-2'>
+                                {product.selling_price}تومان
+                                <s className=' me-4'>{product.orginal_price}تومان</s>
                             </h4>
                             <div>
                                 {product.qty > 0 ?
                                     <div>
-                                        <label className='btn-sm bg-success p-1 rounded text-white px-4 mt-2'>In stock</label>
+                                        <label className='btn-sm bg-success p-1 rounded text-white px-4 mt-2'>موجود</label>
                                         <div className='row'>
                                             <div className='col-md-3 mt-3'>
                                                 <div className='input-group'>
@@ -103,15 +103,15 @@ const ProductDetail = () => {
                                                 </div>
                                             </div>
                                             <div className='col-md-3 mt-3'>
-                                                <button type="button" onClick={submitAddToCart} className='btn btn-primary w-100'>Add to Cart</button>
+                                                <button type="button" onClick={submitAddToCart} className='btn btn-primary w-100'>افزودن به سبد خرید</button>
                                             </div>
                                         </div>
                                     </div> :
-                                    <label className='btn-sm bg-danger p-1 rounded text-white px-4 mt-2'>out of stock</label>
+                                    <label className='btn-sm bg-danger p-1 rounded text-white px-4 mt-2'>ناموجود</label>
 
                                 }
 
-                                <button type="button" className='btn btn-danger mt-3'>Add to WishList</button>
+                                <button type="button" className='btn btn-danger mt-3'>افزودن به علاقه‌مندی‌ها</button>
                             </div>
                         </div>
 

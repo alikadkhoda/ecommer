@@ -27,12 +27,14 @@ import EditUser from "../components/admin/user/EditUser.js";
 import OrderDetail from "../components/admin/order/OrderDetail.js";
 import Profile from "../components/frontend/profile/Profile";
 import EditProfile from "../components/frontend/profile/EditProfile.js";
+import Home from "../components/frontend/home/Home.js";
+import AdminContextProvider from "../context/AdminContext.js";
 
 
 const routes = createBrowserRouter([
     {
         path: '/admin',
-        element: <AdminPrivateRoute/>,
+        element:<AdminContextProvider><AdminPrivateRoute/></AdminContextProvider> ,
         children: [
             {
                 path: '/admin/dashboard',
@@ -104,6 +106,10 @@ const routes = createBrowserRouter([
             {
                 path: '/edit-profile',
                 element: localStorage.getItem('auth_token')? <EditProfile /> : <Navigate to={'/'}/>
+            },
+            {
+                path:'/',
+                element:<Home/>
             },
             {
                 path:'/about',

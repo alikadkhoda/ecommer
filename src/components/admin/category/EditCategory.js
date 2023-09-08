@@ -84,7 +84,7 @@ const EditCategory = () => {
             <div className='card mt-4'>
                 <div className='card-header'>
                     <h4>ویرایش دسته بندی‌ها
-                        <Link to={'/admin/view-category'} className='btn btn-primary btn-sm float-end'>بازگشت</Link>
+                        <Link to={'/admin/view-category'} className='btn btn-primary btn-sm float-start'>بازگشت</Link>
                     </h4>
 
                 </div>

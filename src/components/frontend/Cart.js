@@ -11,7 +11,7 @@ const Cart = () => {
 
     if (!localStorage.getItem('auth_token')) {
         navigate('/')
-        swal('warning', 'Login to goto Cart Page', 'error')
+        swal('warning', 'لطفا برای مشاهده سبد خرید وارد شوید', 'error')
     }
 
 
@@ -58,7 +58,7 @@ const Cart = () => {
     const deleteCartItem = (e, cart_id) => {
         e.preventDefault()
         const thisClicked = e.currentTarget
-        thisClicked.innerText = 'Removing'
+        thisClicked.innerText = 'در حال حذف'
         axios.delete(`/api/delete-cartItem/${cart_id}`).then(res => {
             if (res.data.status === 200) {
                 swal('انجام شد', res.data.message, 'success')
@@ -66,7 +66,7 @@ const Cart = () => {
             }
             else if (res.data.status === 404) {
                 swal('خطا', res.data.message, 'error')
-                thisClicked.innerText = 'Remove'
+                thisClicked.innerText = 'حذف'
             }
         })
     }
@@ -121,7 +121,7 @@ const Cart = () => {
                                                                 </td>
                                                                 <td width='15%' className='text-center'>{item.product.selling_price * item.product_qty}</td>
                                                                 <td width='10%'>
-                                                                    <button type="button" onClick={(e) => deleteCartItem(e, item.id)} className='btn btn-danger btn-sm'>Remove</button>
+                                                                    <button type="button" onClick={(e) => deleteCartItem(e, item.id)} className='btn btn-danger btn-sm'>حذف</button>
                                                                 </td>
                                                             </tr>
                                                         )
@@ -136,13 +136,14 @@ const Cart = () => {
                                         <div className='col-md-8'></div>
                                         <div className='col-md-4'>
                                             <div className='card card-body mt-3'>
-                                                <h4>مجموع هزینه‌ها:
-                                                    <span className='float-end'>{totalCartPrice}</span>
+                                                <h4 className='text-end'>مجموع هزینه‌ها:
+                                                    <span className='float-start'>{totalCartPrice}تومان</span>
+                                                    
                                                 </h4>
                                                 <h4>هزینه کل:
-                                                    <span className='float-end'>{totalCartPrice}</span>
+                                                    <span className='float-start'>{totalCartPrice}تومان</span>
                                                 </h4>
-                                                <Link to={'/checkout'} className='btn btn-primary'>Checkout</Link>
+                                                <Link to={'/checkout'} className='btn btn-primary'>پرداخت</Link>
                                             </div>
                                         </div>
                                     </div>

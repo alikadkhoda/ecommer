@@ -41,7 +41,7 @@ const ViewCategory = () => {
             <div className='card mt-4'>
                 <div className='card-header'>
                     <h4>لیست دسته بندی‌ها
-                        <Link to={'/admin/add-category'} className='btn btn-primary btn-sm float-end'>افزودن دسته بندی جدید</Link>
+                        <Link to={'/admin/add-category'} className='btn btn-primary btn-sm float-start'>افزودن دسته بندی جدید</Link>
                     </h4>
                     
                 </div>

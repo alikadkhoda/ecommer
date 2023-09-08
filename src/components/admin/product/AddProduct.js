@@ -100,7 +100,7 @@ const AddProduct = () => {
             <div className='card mt-4'>
                 <div className='card-header'>
                     <h4>اضافه کردن محصول
-                        <Link to={'/admin/view-product'} className='btn btn-primary btn-sm float-end'>مشاهده محصولات</Link>
+                        <Link to={'/admin/view-product'} className='btn btn-primary btn-sm float-start'>مشاهده محصولات</Link>
                     </h4>
                 </div>
                 <div className='card-body'>

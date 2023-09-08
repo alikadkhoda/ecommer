@@ -22,7 +22,7 @@ const Checkout = () => {
 
     if (!localStorage.getItem('auth_token')) {
         navigate('/')
-        swal('warning', 'Login to goto Cart Page', 'error')
+        swal('warning', 'لطفا برای مشاهده سبد خرید وارد شوید', 'error')
     }
 
     useEffect(() => {
@@ -76,7 +76,7 @@ const Checkout = () => {
         <div>
             <div className='py-3 bg-warning'>
                 <div className='container'>
-                    <h6>Home / Checkout</h6>
+                    <h6>سبد خرید / پرداخت</h6>
                 </div>
             </div>
             <div className='py-4'>
@@ -91,69 +91,69 @@ const Checkout = () => {
                                 <div className='col-md-7'>
                                     <div className='card'>
                                         <div className='card-header'>
-                                            <h4>اطلاعات پایه:</h4>
+                                            <h4>اطلاعات سفارش‌ دهدنده:</h4>
                                         </div>
                                         <div className='card-body'>
                                             <div className='row'>
                                                 <div className='col-md-6'>
                                                     <div className='form-group mb-3'>
-                                                        <label>First Name:</label>
+                                                        <label>نام:</label>
                                                         <input type="text" name="firstname" onChange={handleInput} value={checkoutInput.firstname} className='form-control' />
                                                         <small className='text-danger'>{error.firstname}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-6'>
                                                     <div className='form-group mb-3'>
-                                                        <label>Last Name:</label>
+                                                        <label>نام خانوادگی:</label>
                                                         <input type="text" name="lastname" onChange={handleInput} value={checkoutInput.lastname} className='form-control' />
                                                         <small className='text-danger'>{error.lastname}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-6'>
                                                     <div className='form-group mb-3'>
-                                                        <label>Phone Number:</label>
+                                                        <label>شماره تلفن:</label>
                                                         <input type="text" name="phone" onChange={handleInput} value={checkoutInput.phone} className='form-control' />
                                                         <small className='text-danger'>{error.phone}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-6'>
                                                     <div className='form-group mb-3'>
-                                                        <label>Email Address:</label>
+                                                        <label>ایمیل</label>
                                                         <input type="text" name="email" onChange={handleInput} value={checkoutInput.email} className='form-control' />
                                                         <small className='text-danger'>{error.email}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-12'>
                                                     <div className='form-group mb-3'>
-                                                        <label>Full Address:</label>
+                                                        <label>آدرس کامل:</label>
                                                         <textarea rows="3" name='address' onChange={handleInput} value={checkoutInput.address} className='form-control'></textarea>
                                                         <small className='text-danger'>{error.address}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-4'>
                                                     <div className='form-group mb-3'>
-                                                        <label>City:</label>
+                                                        <label>شهر</label>
                                                         <input type="text" name="city" onChange={handleInput} value={checkoutInput.city} className='form-control' />
                                                         <small className='text-danger'>{error.city}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-4'>
                                                     <div className='form-group mb-3'>
-                                                        <label>State:</label>
+                                                        <label>خیابان:</label>
                                                         <input type="text" name="state" onChange={handleInput} value={checkoutInput.state} className='form-control' />
                                                         <small className='text-danger'>{error.state}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-4'>
                                                     <div className='form-group mb-3'>
-                                                        <label>Zip Code:</label>
+                                                        <label>کد پستی</label>
                                                         <input type="text" name="zipcode" onChange={handleInput} value={checkoutInput.zipcode} className='form-control' />
                                                         <small className='text-danger'>{error.zipcode}</small>
                                                     </div>
                                                 </div>
                                                 <div className='col-md-12'>
                                                     <div className='form-group text-end'>
-                                                        <button type="button" onClick={submitOrder} className='btn btn-primary'>Place Order</button>
+                                                        <button type="button" onClick={submitOrder} className='btn btn-primary'>پرداخت</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -164,10 +164,10 @@ const Checkout = () => {
                                     <table className='table table-bordered'>
                                         <thead>
                                             <tr>
-                                                <th width='50%'>Product</th>
-                                                <th>Price</th>
-                                                <th>Qty</th>
-                                                <th>Total</th>
+                                                <th width='50%'>محصول</th>
+                                                <th>قیمت</th>
+                                                <th>تعداد</th>
+                                                <th>مجموع هزینه‌ها</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -183,7 +183,7 @@ const Checkout = () => {
                                                 )
                                             })}
                                             <tr>
-                                                <td colSpan={'2'} className='text-end fw-bold'>Grand Total:</td>
+                                                <td colSpan={'2'} className='text-end fw-bold'>هزینه کل</td>
                                                 <td colSpan={'2'} className='text-end fw-bold'>{totalCartPrice}</td>
                                             </tr>
                                         </tbody>

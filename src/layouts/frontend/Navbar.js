@@ -48,9 +48,7 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow sticky-top">
       <div className="container">
-        <Link className="navbar-brand" to={'/'}>
-          <img src={img} alt='navbar' width='50px' height='40px' />
-        </Link>
+
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
@@ -66,16 +64,18 @@ const Navbar = () => {
             <li className="nav-item">
               <NavLink className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} to={'/cart'}>سبد خرید</NavLink>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <NavLink className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} to={'/about'}>درباره ما</NavLink>
             </li>
             <li className="nav-item">
               <NavLink className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'} to={'/contact'}>محتوا</NavLink>
-            </li>
+            </li> */}
 
             {AuthButtons}
           </ul>
-
+          <Link className="navbar-brand" to={'/'}>
+            <img src={img} alt='navbar' width='50px' height='40px' />
+          </Link>
         </div>
       </div>
     </nav>

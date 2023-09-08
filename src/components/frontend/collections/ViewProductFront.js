@@ -32,7 +32,7 @@ const ViewProductFront = () => {
         <div>
             <div className='py-3 bg-warning'>
                 <div className='container'>
-                    <h6>Category {category.name}</h6>
+                    <h6>دسته بندی {category.name}</h6>
                 </div>
             </div>
             <div className='py-3'>
@@ -47,11 +47,11 @@ const ViewProductFront = () => {
                                 <div className='col-md-3' key={item.id}>
                                     <div className='card'>
                                         <Link to={`/collections/${item.category.slug}/${item.slug}`}>
-                                            <img src={`http://127.0.0.1:8000/${item.image}`} className='w-100' width='250px' height='250px' alt={item.name} />
+                                            <img src={`http://127.0.0.1:8000/${item.image}`} className='w-100 mb-5' width='250px' height='250px' alt={item.name} />
                                         </Link>
                                         <div className='card-body'>
                                             <Link to={`/collections/${item.category.slug}/${item.slug}`}>
-                                                <h5>{item.name}</h5>
+                                                <h6>{item.name}</h6>
                                             </Link>
                                         </div>
                                     </div>
@@ -59,7 +59,7 @@ const ViewProductFront = () => {
                             )
                         }) :
                             <div className='col-md-12'>
-                                <h4>در دسترس نیست {category.name} محصولات</h4>
+                                <h4>محصولات {category.name} در دسترس نیست</h4>
                             </div>}
                     </div>
                 </div>

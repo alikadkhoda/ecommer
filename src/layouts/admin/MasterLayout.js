@@ -6,14 +6,14 @@ import '../../assets/admin/css/styles.css';
 import '../../assets/admin/js/scripts.js';
 import { Navigate, Outlet} from 'react-router-dom';
 
-const MasterLayout = ({user}) => {
+const MasterLayout = () => {
     return (
         <div className='sb-nav-fixed'>
             <Navbar />
             <div id="layoutSidenav">
 
                 <div id="layoutSidenav_nav">
-                    <Sidbar user={user} />
+                    <Sidbar />
                 </div>
                 <div id="layoutSidenav_content">
                     <main>

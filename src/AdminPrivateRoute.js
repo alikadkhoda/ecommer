@@ -1,12 +1,13 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
+import { AdminContext } from './context/AdminContext';
 import MasterLayout from './layouts/admin/MasterLayout';
 
 const AdminPrivateRoute = () => {
     const [Authenticated, setAuthenticated]=useState(false)
-    const [user,setUser]=useState('')
+    const{setUser}=useContext(AdminContext)
     const [loading, setLoading]=useState(true)
     const navigate=useNavigate()
     useEffect(()=>{
@@ -53,7 +54,7 @@ const AdminPrivateRoute = () => {
     }
     return ( 
        Authenticated?
-       <MasterLayout user={user}/>:<Navigate to={'/login'}/>
+       <MasterLayout />:<Navigate to={'/login'}/>
      );
 }
  

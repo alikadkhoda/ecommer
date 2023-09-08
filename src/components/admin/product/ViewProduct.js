@@ -10,7 +10,7 @@ const ViewProduct = () => {
     const deleteProduct=(e,id)=>{
         e.preventDefault()
         const thisClicked=e.currentTarget
-        thisClicked.innerText='Deleting'
+        thisClicked.innerText='در حال حذف'
 
         axios.delete(`/api/delete-product/${id}`).then((res)=>{
             if(res.data.status===200){
@@ -19,7 +19,7 @@ const ViewProduct = () => {
             }
             else if(res.data.status===404){
                 swal('خطا',res.data.message,'error')
-                thisClicked.innerText='Delete'
+                thisClicked.innerText='حذف'
             }
         })
     }
@@ -42,7 +42,7 @@ const ViewProduct = () => {
         <div className='card  mt-3 m-3'>
             <div className='card-header'>
                 <h4>مشاهده محصول
-                    <Link to={'/admin/add-product'} className='btn btn-primary btn-sm float-end'>اضافه کردن محصول</Link>
+                    <Link to={'/admin/add-product'} className='btn btn-primary btn-sm float-start'>اضافه کردن محصول</Link>
                 </h4>
             </div>
             <div className='card-body'>

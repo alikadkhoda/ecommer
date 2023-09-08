@@ -110,7 +110,7 @@ const EditProduct = () => {
             <div className='card mt-4'>
                 <div className='card-header'>
                     <h4>ویرایش محصول
-                        <Link to={'/admin/view-product'} className='btn btn-primary btn-sm float-end'>مشاهده محصولات</Link>
+                        <Link to={'/admin/view-product'} className='btn btn-primary btn-sm float-start'>مشاهده محصولات</Link>
                     </h4>
                 </div>
                 <div className='card-body'>
@@ -226,7 +226,7 @@ const EditProduct = () => {
                                     </div>
 
                                 </div>
-                                <button type="submit" className='btn btn-primary px-4 mt-2'>ارسال</button>
+                                <button type="submit" className='btn btn-primary px-4 mt-2'>آپدیت</button>
                             </form>
                     }
                 </div>

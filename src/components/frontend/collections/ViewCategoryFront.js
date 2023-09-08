@@ -34,7 +34,7 @@ const ViewCategoryFront = () => {
                                 <div className='col-md-4' key={item.id}>
                                     <div className='card mb-4 w-75'>
                                         <Link to={`/collections/${item.slug}`}>
-                                            <img src={`http://127.0.0.1:8000/${item.image}`} alt={item.name} className='w-100' width='250px' height='250px' />
+                                            <img src={`http://127.0.0.1:8000/${item.image}`} alt={item.name} className='w-100 border-bottom' width='250px' height='250px' />
                                         </Link>
                                         <div className='card-body'>
                                             <Link to={`/collections/${item.slug}`} className='text-decoration-none'>

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-const Sidbar = ({user}) => {
+import { AdminContext } from '../../context/AdminContext';
+const Sidbar = () => {
+    const{user}=useContext(AdminContext)
     return (
         <nav className="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
             <div className="sb-sidenav-menu">

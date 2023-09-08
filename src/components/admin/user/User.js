@@ -32,7 +32,7 @@ const User = () => {
             }
             else if(res.data.status===404){
                 swal('خطا',res.data.message,'error')
-                thisClicked.innerText='Delete'
+                thisClicked.innerText='حذف'
             }
         })
     }
